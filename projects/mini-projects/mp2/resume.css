@@ -1,0 +1,156 @@
+/*rule of thumb always do this*/
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#page-wrapper{
+    width: 80vw;
+    margin: auto;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    justify-content: space-between;
+    padding: 1vh 1vw;
+    background-color: #204911;
+    color: #F7F7F7;
+}
+
+#header-content{
+    display: flex;
+    flex-direction: column;
+}
+
+#header-tagline{
+    margin: auto;
+    color: #E4E7D5;
+}
+
+#container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+nav{
+    width: 30%;
+    background-color: #D0D6B3
+}
+
+nav a{
+    /*get rid of underline in nav links*/
+    text-decoration: none;
+    color: #204911;
+}
+
+nav li{
+    font-size: calc(3px + 3vw);
+    /*width of "buttons"*/
+    width: 90%;
+    background-color: #E4E7D5;
+    /*"button" size*/
+    padding: 1vh 2vw;
+    /*distance between "buttons"*/
+    margin: 1vh auto;
+    border: 5px inset #AAAE7F;
+    list-style-type: none
+}
+
+nav ul{
+    display: flex;
+    flex-direction: column;
+    background-color: #D0D6B3;
+    text-align: center;
+    padding-left: 0;
+}
+
+/*body{*/
+/*    background-color: #E4E7D5;*/
+/*}*/
+
+main{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    background-color: #E4E7D5;
+    padding: 2vh 2vw;
+}
+
+#main-content{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 2vh 2vw;
+}
+
+#main-title{
+    margin: 2vw 0;
+    text-align: center;
+    font-size: calc(2px + 2vw);
+    color: #204911;
+}
+
+main p{
+    margin: 0 1vw;
+    font-size: calc(2px + 2vw);
+    color: #204911;
+}
+
+#home-image{
+    width: 50%;
+    margin: 1vh 1vw;
+}
+
+#headshot-image{
+    max-width: 100%;
+}
+
+#home-description{
+    align-self: center;
+    width: 50%;
+    margin: 1vh 1vw;
+}
+
+#main-text{
+    align-self: center;
+    width: 100%;
+    margin: 1vh 1vw;
+}
+
+footer{
+    background-color: #204911;
+    color: #E4E7D5;
+    padding: 2vh 1vw;
+    /*background-image: linear-gradient(180deg, chocolate, brown);*/
+}
+
+footer a{
+    color: #D0D6B3;
+}
+
+/*special rules for mobile*/
+@media screen and (max-width: 750px){
+    header{
+        display: flex;
+        justify-content: center;
+        padding: 1vh 1vw;
+    }
+
+    #container{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    nav ul{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        list-style: none;
+        padding-left: 0;
+    }
+}
