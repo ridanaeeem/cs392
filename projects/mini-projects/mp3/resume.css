@@ -224,7 +224,7 @@ footer a{
     }
 
     nav li{
-        font-size: calc(1px + 2vw);
+        font-size: calc(2px + 2vw);
         background-color: #E4E7D5;
         padding: 1% 0%;
         margin: 1vh auto;
