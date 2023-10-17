@@ -17,8 +17,8 @@
                         <p>My online resume</p>
                     </div>
                 </div>
-                <div id="log-in-btn">
-                    <button onclick="logIn()">Log In</button>
+                <div id="btn-area">
+                    <button id="log-in-btn" onclick="logIn()">Log In</button>
                 </div>
             </header>
 
@@ -35,16 +35,21 @@
                 </nav>
 
                 <main>
-                    <div id="log-in-box">
-                        <label for="username">Username: </label>
-                        <br>
-                        <input id="username" type="text">
-                        <br>
-                        <label for="password">Password: </label>
-                        <br>
-                        <input id="password" type="text">
-                        <br>
-                        <button id="enter-btn" onclick="checkLogIn()">Enter</button>
+                    <div id="login-group">
+                        <div id="log-in-box">
+                            <label for="username">Username: </label>
+                            <br>
+                            <input id="username" type="text">
+                            <br>
+                            <label for="password">Password: </label>
+                            <br>
+                            <input id="password" type="text">
+                            <br>
+                            <button id="enter-btn" onclick="checkLogIn()">Enter</button>
+                        </div>
+                        <div id="alert">
+                            <p></p>
+                        </div>
                     </div>
                     <div id="main-title">
                         <h3>Credits</h3>
