@@ -7,37 +7,56 @@
     </head>
 
     <body>
-        <div class="page-wrapper">
+        <div id="page-wrapper">
             <header>
-                <div class="header-content">
-                    <div class="header-name">
+                <div id="header-content">
+                    <div id="header-name">
                         <h1>Rida Naeem</h1>
                     </div>
-                    <div class="header-tagline">
+                    <div id="header-tagline">
                         <p>My online resume</p>
                     </div>
                 </div>
+                <div id="log-in-btn">
+                    <button onclick="logIn()">Log In</button>
+                </div>
             </header>
 
-            <div class="container">
+            <div id="container">
                 <nav>
                     <ul>
                         <li><a href="new-ridan-resume.html">Home</a></li>
                         <li><a href="education.html">Education</a></li>
                         <li><a href="work.html">Work</a></li>
                         <li><a href="volunteer.html">Volunteer</a></li>
-                        <li><a href="current.html">Projects</a></li>
-                        <li><a href="references.html">References</a></li>
+                        <li class="secret"><a href="current.html">Projects</a></li>
+                        <li class="secret"><a href="references.html">References</a></li>
                     </ul>
                 </nav>
 
                 <main>
-                    <div class="main-title">
+                    <div id="login-group">
+                        <div id="log-in-box">
+                            <label for="username">Username: </label>
+                            <br>
+                            <input id="username" type="text">
+                            <br>
+                            <label for="password">Password: </label>
+                            <br>
+                            <input id="password" type="text">
+                            <br>
+                            <button id="enter-btn" onclick="checkLogIn()">Enter</button>
+                        </div>
+                        <div id="alert">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div id="main-title">
                         <h3>Home</h3>
                     </div>
 
                     <!-- brief description -->
-                    <div class="main-content">
+                    <div id="main-content">
                         <!-- photo of me -->
                         <div id="home-image">
                             <a href="credits.html#credit-profile"><img id="headshot-image" src="rida-photo.jpeg" alt="Rida Naeem"></a>
@@ -47,7 +66,7 @@
                                 Computer Science and am planning to graduate in May 2024. </p>
                         </div>
                     </div>
-                    <div class="main-text">
+                    <div id="main-text">
                         <p>I am interested in pursuing a career in the field of computational neuroscience in the future,
                             and I currently hope to gain more experience manipulating data and working with various biological models.
                             On this website, I have laid out my education, work, and volunteer experiences, as well as some references
@@ -60,5 +79,6 @@
                 <p>All Rights Reserved by Rida Naeem | <a href="credits.html">Credits</a> &#169;</p>
             </footer>
         </div>
+        <script src="ridan-interactive-resume.js"></script>
     </body>
 </html>

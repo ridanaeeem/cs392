@@ -7,36 +7,49 @@
     </head>
 
     <body>
-        <div class="page-wrapper">
+        <div id="page-wrapper">
             <header>
-                <div class="header-content">
-                    <div class="header-name">
+                <div id="header-content">
+                    <div id="header-name">
                         <h1>Rida Naeem</h1>
                     </div>
-                    <div class="header-tagline">
+                    <div id="header-tagline">
                         <p>My online resume</p>
                     </div>
                 </div>
+                <div id="log-in-btn">
+                    <button onclick="logIn()">Log In</button>
+                </div>
             </header>
 
-            <div class="container">
+            <div id="container">
                 <nav>
                     <ul>
                         <li><a href="new-ridan-resume.html">Home</a></li>
                         <li><a href="education.html">Education</a></li>
                         <li><a href="work.html">Work</a></li>
                         <li><a href="volunteer.html">Volunteer</a></li>
-                        <li><a href="current.html">Projects</a></li>
-                        <li><a href="references.html">References</a></li>
+                        <li class="secret"><a href="current.html">Projects</a></li>
+                        <li class="secret"><a href="references.html">References</a></li>
                     </ul>
                 </nav>
 
                 <main>
-                    <div class="main-title">
+                    <div id="log-in-box">
+                        <label for="username">Username: </label>
+                        <br>
+                        <input id="username" type="text">
+                        <br>
+                        <label for="password">Password: </label>
+                        <br>
+                        <input id="password" type="text">
+                        <br>
+                        <button id="enter-btn" onclick="checkLogIn()">Enter</button>
+                    </div>
+                    <div id="main-title">
                         <h3>Credits</h3>
                     </div>
-                    <div class="main-content"></div>
-                    <!-- states my current degree and lists some of the relevant classes i have taken -->
+                    <div id="main-content"></div>
                         <div id="credit-profile">
                             <p>This <a href="rida-photo.jpeg" target="_blank">profile photo</a> is credited to Rida Naeem under the following <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons License</a></p>
                         </div>
@@ -47,5 +60,6 @@
                 <p>All Rights Reserved by Rida Naeem | <a href="credits.html">Credits</a> &#169;</p>
             </footer>
         </div>
+        <script src="ridan-interactive-resume.js"></script>
     </body>
 </html>
