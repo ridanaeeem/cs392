@@ -1,4 +1,5 @@
 const userPass = {
+    "cs392":"admin",
     "hello123": "ridan",
     "tboy123": "jeffrey",
     "100sleep": "pierce",
