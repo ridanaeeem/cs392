@@ -1,5 +1,4 @@
 const userPass = {
-    "e":"e",
     "hello123": "ridan",
     "tboy123": "jeffrey",
     "100sleep": "pierce",
@@ -8,6 +7,17 @@ const userPass = {
     "d1vide":"chemical",
     "myl0ve":"mitski"
 };
+
+// extra credit
+// function to create hash map of n random keys (passwords) and values (usernames)
+function createHashMap(n) {
+    dict = {};
+    for (i = 0; i < n; i++) {
+        const user = (Math.floor(Math.random() * 1000000000)).toString();
+        const pass = (Math.floor(Math.random() * 1000000000)).toString();
+        dict[pass] = user;
+    }
+}
 
 // make log in box appear if it is not there, and if it is there make it disappear
 let vis = false;
