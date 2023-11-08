@@ -12,6 +12,7 @@ import { Volunteer } from './components/main/Volunteer';
 import { Projects } from './components/main/Projects';
 import { References } from './components/main/References';
 import { Credits } from './components/main/Credits';
+import UserPass from './hidden/authData';
 
 
 const PageWrapper = styled.div`
@@ -24,10 +25,17 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   position: relative;
+
+  @media screen and (max-width: 750px){
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 
 export function App(){
+    // control visibility of the login box 
     // to begin with, logInZIndex = false
     const [logInZIndex, setLogInZIndex] = useState(false);
 
@@ -37,6 +45,17 @@ export function App(){
     const ToggleLogInZIndex = () => {
         setLogInZIndex(!logInZIndex);
     };
+
+    // manage attempts and verification, with three tries to start with 
+    const [tries, setTries] = useState(3);
+
+    const checkLogIn = (username, password) => {
+        setTries(tries - 1);
+
+        
+    };
+
+    
     
     return(
         <PageWrapper>
@@ -45,18 +64,21 @@ export function App(){
                 <Container>
                     <Navigation/>
                     <Routes>
-                        {/* need to pass in logInZIndex as a prop to each main component  */}
-                        <Route path="" element={
+                        {/* need to pass in the following props:
+                        logInZIndex = whether or nor login is displayed: true (show) / false (hide)
+                        checkLogIn = whether or not login is valid */}
+                        <Route path="/ridan/cs392/projects/mini-projects/mp4/build/" element={
                             <Home
                                 logInZIndex={logInZIndex}
+                                checkLogIn={checkLogIn}
                             />} 
                         />
-                        <Route path="education" element={<Education/>} />
-                        <Route path="work" element={<Work/>} />
-                        <Route path="volunteer" element={<Volunteer/>} />
-                        <Route path="projects" element={<Projects/>} />
-                        <Route path="references" element={<References/>} />
-                        <Route path="credits" element={<Credits/>} />
+                        <Route path="/ridan/cs392/projects/mini-projects/mp4/build/education" element={<Education/>} />
+                        <Route path="/ridan/cs392/projects/mini-projects/mp4/build/work" element={<Work/>} />
+                        <Route path="/ridan/cs392/projects/mini-projects/mp4/build/volunteer" element={<Volunteer/>} />
+                        <Route path="/ridan/cs392/projects/mini-projects/mp4/build/projects" element={<Projects/>} />
+                        <Route path="/ridan/cs392/projects/mini-projects/mp4/build/references" element={<References/>} />
+                        <Route path="/ridan/cs392/projects/mini-projects/mp4/build/credits" element={<Credits/>} />
                     </Routes>
                 </Container>
                 <Footer>

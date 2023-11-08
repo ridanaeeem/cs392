@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 
 const LogInGroup = styled.div`
@@ -14,6 +14,20 @@ const LogInBox = styled.div`
     background-color: rgb(32,73,17,70%);
     padding: 3vh 1vw;
     z-index: -1;
+
+    @media screen and (max-width: 750px){
+        top: 6vh;
+        padding: 4vh 2vw;
+    }
+`;
+
+const EnterButton = styled.button`
+    background-color: #E4E7D5;
+    color: #204911;
+    padding: 1vh 3vw;
+    margin: 1vh auto;
+    border-radius: 10px;
+    border-color: #657C48;
 `;
 
 const Alert = styled.div`
@@ -27,24 +41,36 @@ const Alert = styled.div`
     top: 25vh;
 `;
 
-export function LogInPopUp({logInZIndex}){
+export function LogInPopUp({logInZIndex, checkLogIn}){
+    // getting usernames and passwords 
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    console.log(username,password);
 
     return(
         <LogInGroup>
             {/* if logInZIndex == True: Z-index = 1 (box visible)
             if logInZIndex == False: Z-index = -1 (box hidden) */}
-            
+
             <LogInBox style={{zIndex: logInZIndex ? '1' : '-1'}}>
-                {/* <label for="username">Username: </label>  */}
-
-                <input id="username" type="text"/>
-
-                {/* <label for="password">Password: </label>  */}
-
-                <input id="password" type="text"/>
-
-                {/* <button id="enter-btn" onClick="checkLogIn()">Enter</button>  */}
-                <Alert><p></p></Alert>
+                <label for="username" >Username: </label> 
+                <br></br>
+                <input 
+                    type="text" 
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                />
+                <br></br>
+                <label for="password">Password: </label> 
+                <br></br>
+                <input 
+                    type="text"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+                <br></br>
+                <EnterButton onClick={checkLogIn}>Enter</EnterButton> 
+                <Alert></Alert>
             </LogInBox>
         </LogInGroup>
     );

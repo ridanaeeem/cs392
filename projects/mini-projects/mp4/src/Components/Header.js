@@ -10,6 +10,14 @@ const StyledHeader = styled.header`
   font-size: calc(14px + 1vw);
   background-color: #204911;
   color: #F7F7F7;
+
+  @media screen and (max-width: 750px){
+    display: flex;
+    justify-content: center;
+    padding: 1vh 1vw;
+    background-color: #204911;
+    color: #F7F7F7;
+  }
 `;
 
 const HeaderContent = styled.div`

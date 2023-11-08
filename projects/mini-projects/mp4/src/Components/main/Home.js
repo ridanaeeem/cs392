@@ -10,6 +10,10 @@ export const Main =  styled.main`
   background-color: #E4E7D5;
   padding: 3vh 3vw;
   color: #204911;
+
+  @media screen and (max-width: 750px){
+    width: 100%;
+  }
 `;
 
 export const MainTitle = styled.h3`
@@ -25,6 +29,14 @@ export const MainContent = styled.div`
   display: flex;
   flex-direction: row;
   padding: 2vh 2vw;
+
+  @media screen and (max-width: 750px){
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1vh 0vw;
+  }
 `;
 
 export const MainText = styled.div`
@@ -41,19 +53,31 @@ const HomeDescription = styled.div`
   margin: 1vh 2vw;
   font-size: calc(8px + 2vh);
   color: #204911;
+
+  @media screen and (max-width: 750px){
+    align-self: center;
+    width: 100%;
+  }
 `;
 
 const HomeImage = styled.img`
   width: 50%;
   margin: 1vh auto;
+
+  @media screen and (max-width: 750px){
+    width: 50%;
+    margin: 1vh auto;
+  }
 `;
 
-export function Home({logInZIndex}){
+export function Home({logInZIndex, checkLogIn}){
   
   return (
       <Main>
-          {/* LogInPopUp component needs to know logInZIndex, pass that in as a prop  */}
-          <LogInPopUp logInZIndex={logInZIndex}/>
+          <LogInPopUp 
+            logInZIndex={logInZIndex} 
+            checkLogIn={checkLogIn}
+          />
           <MainTitle>Home</MainTitle>
 
           <MainContent>
