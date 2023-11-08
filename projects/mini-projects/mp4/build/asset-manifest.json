@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.js": "./static/js/main.8e09f066.js",
+    "main.js": "./static/js/main.5b5f83a5.js",
     "static/media/rida-photo.jpeg": "./static/media/rida-photo.946f11301e1b657fd69b.jpeg",
     "index.html": "./index.html",
-    "main.8e09f066.js.map": "./static/js/main.8e09f066.js.map"
+    "main.5b5f83a5.js.map": "./static/js/main.5b5f83a5.js.map"
   },
   "entrypoints": [
-    "static/js/main.8e09f066.js"
+    "static/js/main.5b5f83a5.js"
   ]
 }
