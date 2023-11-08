@@ -67,8 +67,7 @@ const HomeImage = styled.img`
 
   @media screen and (max-width: 750px){
     width: 50%;
-    margin: 1vh auto;
-    text-align: center;
+    margin: 1vh 18vw;
   }
 `;
 
