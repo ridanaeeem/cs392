@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import photo from "../../media/rida-photo.jpeg";
 import { LogInPopUp } from "./LogInPopUp";
+import { Link } from "react-router-dom";
 
 export const Main =  styled.main`
   display: flex;
@@ -61,27 +62,34 @@ const HomeDescription = styled.div`
 `;
 
 const HomeImage = styled.img`
-  width: 50%;
+  width: 100%;
   margin: 1vh auto;
 
   @media screen and (max-width: 750px){
     width: 50%;
     margin: 1vh auto;
+    text-align: center;
   }
 `;
 
-export function Home({logInZIndex, checkLogIn}){
+export function Home({logInZIndex, checkLogIn, setUsername, setPassword, tries, notification}){
   
   return (
       <Main>
           <LogInPopUp 
             logInZIndex={logInZIndex} 
             checkLogIn={checkLogIn}
+            setUsername={setUsername} 
+            setPassword={setPassword}
+            tries={tries}
+            notification={notification}
           />
           <MainTitle>Home</MainTitle>
 
           <MainContent>
-              <HomeImage src={photo} alt="Rida Naeem"/>
+              <Link to="/ridan/cs392/projects/mini-projects/mp4/build/credits">
+                <HomeImage src={photo} alt="Rida Naeem"/>
+              </Link>
               <HomeDescription>
                   <p>My name is Rida Naeem and I am a senior at Boston University. I am majoring in Neuroscience and minoring in
                       Computer Science and am planning to graduate in May 2024. </p>

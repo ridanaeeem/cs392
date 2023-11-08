@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Main, MainTitle } from "./Home"
+import { LogInPopUp } from "./LogInPopUp";
 
 const RefTable = styled.table`
   align-self: center;
@@ -29,9 +30,17 @@ const OddRowItem = styled.td`
   background-color: #D0D6B3;
 `
 
-export function References(){
+export function References({logInZIndex, checkLogIn, setUsername, setPassword, tries, notification}){
     return (
         <Main>
+            <LogInPopUp 
+                logInZIndex={logInZIndex} 
+                checkLogIn={checkLogIn}
+                setUsername={setUsername} 
+                setPassword={setPassword}
+                tries={tries}
+                notification={notification}
+            />
             <MainTitle>References</MainTitle>
             <RefTable>
                 <tr>

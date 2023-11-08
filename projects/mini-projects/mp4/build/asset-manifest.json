@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.js": "/static/js/main.cc8d40fe.js",
-    "static/media/rida-photo.jpeg": "/static/media/rida-photo.946f11301e1b657fd69b.jpeg",
-    "index.html": "/index.html",
-    "main.cc8d40fe.js.map": "/static/js/main.cc8d40fe.js.map"
+    "main.js": "/ridan/cs392/projects/mini-projects/mp4/build/static/js/main.fc2391dc.js",
+    "static/media/rida-photo.jpeg": "/ridan/cs392/projects/mini-projects/mp4/build/static/media/rida-photo.946f11301e1b657fd69b.jpeg",
+    "index.html": "/ridan/cs392/projects/mini-projects/mp4/build/index.html",
+    "main.fc2391dc.js.map": "/ridan/cs392/projects/mini-projects/mp4/build/static/js/main.fc2391dc.js.map"
   },
   "entrypoints": [
-    "static/js/main.cc8d40fe.js"
+    "static/js/main.fc2391dc.js"
   ]
 }

@@ -49,16 +49,16 @@ const StyledLi = styled.li`
   }
 `
 
-export function Navigation(){
+export function Navigation({logInStatus}){
     return(
         <StyledNav>
             <StyledUl>
-                <StyledLi><Link to="/ridan/cs392/projects/mini-projects/mp4/build">Home</Link></StyledLi>
+                <StyledLi><Link to="/ridan/cs392/projects/mini-projects/mp4/build/">Home</Link></StyledLi>
                 <StyledLi><Link to="/ridan/cs392/projects/mini-projects/mp4/build/education">Education</Link></StyledLi>
                 <StyledLi><Link to="/ridan/cs392/projects/mini-projects/mp4/build/work">Work</Link></StyledLi>
                 <StyledLi><Link to="/ridan/cs392/projects/mini-projects/mp4/build/volunteer">Volunteer</Link></StyledLi>
-                <StyledLi><Link to="/ridan/cs392/projects/mini-projects/mp4/build/projects">Projects</Link></StyledLi>
-                <StyledLi><Link to="/ridan/cs392/projects/mini-projects/mp4/build/references">References</Link></StyledLi>
+                <StyledLi style={{display: logInStatus ? "block" : "none"}}><Link to="/ridan/cs392/projects/mini-projects/mp4/build/projects">Projects</Link></StyledLi>
+                <StyledLi style={{display: logInStatus ? "block" : "none"}}><Link to="/ridan/cs392/projects/mini-projects/mp4/build/references">References</Link></StyledLi>
             </StyledUl>
         </StyledNav>
     )

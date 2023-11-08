@@ -46,14 +46,14 @@ const LogInButton = styled.button`
   border-color: #657C48;
 `;
 
-export function Header({logInClick}){
+export function Header({logInClick,disableButton}){
     return(
         <StyledHeader>
             <HeaderContent>
                 <h1>Rida Naeem</h1>
                 <HeaderTagline>My Online Resume</HeaderTagline>
                 <ButtonArea>
-                    <LogInButton type="button" onClick={logInClick} >Log In</LogInButton>
+                    <LogInButton type="button" onClick={logInClick} disabled={disableButton}>Log In</LogInButton>
                 </ButtonArea>
             </HeaderContent>
         </StyledHeader>

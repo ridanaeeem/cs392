@@ -12,7 +12,7 @@ import { Volunteer } from './components/main/Volunteer';
 import { Projects } from './components/main/Projects';
 import { References } from './components/main/References';
 import { Credits } from './components/main/Credits';
-import UserPass from './hidden/authData';
+import { userPass } from './hidden/authData';
 
 
 const PageWrapper = styled.div`
@@ -38,7 +38,6 @@ export function App(){
     // control visibility of the login box 
     // to begin with, logInZIndex = false
     const [logInZIndex, setLogInZIndex] = useState(false);
-
     // when the login button is clicked, change z-index
     // changes z-index from t/1 --> f/-1 or f/-1 --> t/1
     // false = hide box = z-index: -1, true = show box = z-index: 1
@@ -46,39 +45,134 @@ export function App(){
         setLogInZIndex(!logInZIndex);
     };
 
-    // manage attempts and verification, with three tries to start with 
-    const [tries, setTries] = useState(3);
-
-    const checkLogIn = (username, password) => {
+    // manage login attempts and verification, with a total of three tries to start with 
+    const [tries, setTries] = useState(2);
+    const disableButton = tries < 0;
+    // getting and setting usernames and passwords 
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    // login status
+    const [logInStatus, setLogInStatus] = useState(false);
+    // notification status
+    const [notification, setNotification] = useState("");
+    // verify login
+    const checkLogIn = () => {
+        // decrement tries each time 
         setTries(tries - 1);
-
-        
+        if ((!disableButton) && (userPass[password] === username)){
+            // successful login 
+            setLogInStatus(true);
+            // hide login box 
+            setLogInZIndex(false);
+            // makes it so loginbutton will be disabled 
+            setTries(0);
+            // hide notification
+            setNotification("");
+        } else if (!disableButton){
+            // still have some tries left
+            if (tries === 1){
+                setNotification("You have " + tries + " try remaining. This is your last attempt");
+            } else if (tries === 0) {
+                setLogInZIndex(false);
+                setNotification("You are out of attempts");
+            } else {
+                setNotification("You have " + tries + " tries remaining");
+            }
+        } else {
+            // out of tries
+            // hide login box 
+            setLogInZIndex(false);
+            setNotification("You are out of attempts");
+        }
     };
-
-    
     
     return(
         <PageWrapper>
             <BrowserRouter>
-                <Header logInClick={ToggleLogInZIndex} />
+                <Header 
+                    logInClick={ToggleLogInZIndex} 
+                    disableButton={disableButton}
+                />
                 <Container>
-                    <Navigation/>
+                    <Navigation logInStatus={logInStatus}/>
                     <Routes>
                         {/* need to pass in the following props:
                         logInZIndex = whether or nor login is displayed: true (show) / false (hide)
-                        checkLogIn = whether or not login is valid */}
+                        checkLogIn = whether or not login is valid 
+                        setUsername = gets what user says their username is
+                        setPassword = gets what user says their password is
+                        tries = number of tries logging in
+                        notifcation = what should be displayed in notification window when logging in attempts fail*/}
                         <Route path="/ridan/cs392/projects/mini-projects/mp4/build/" element={
                             <Home
                                 logInZIndex={logInZIndex}
                                 checkLogIn={checkLogIn}
+                                setUsername={setUsername} 
+                                setPassword={setPassword}
+                                tries={tries}
+                                notification={notification}
                             />} 
                         />
-                        <Route path="/ridan/cs392/projects/mini-projects/mp4/build/education" element={<Education/>} />
-                        <Route path="/ridan/cs392/projects/mini-projects/mp4/build/work" element={<Work/>} />
-                        <Route path="/ridan/cs392/projects/mini-projects/mp4/build/volunteer" element={<Volunteer/>} />
-                        <Route path="/ridan/cs392/projects/mini-projects/mp4/build/projects" element={<Projects/>} />
-                        <Route path="/ridan/cs392/projects/mini-projects/mp4/build/references" element={<References/>} />
-                        <Route path="/ridan/cs392/projects/mini-projects/mp4/build/credits" element={<Credits/>} />
+                        <Route path="/ridan/cs392/projects/mini-projects/mp4/build/education" element={
+                            <Education 
+                                logInZIndex={logInZIndex}
+                                checkLogIn={checkLogIn}
+                                setUsername={setUsername} 
+                                setPassword={setPassword}
+                                tries={tries}
+                                notification={notification}
+                            />} 
+                        />
+                        <Route path="/ridan/cs392/projects/mini-projects/mp4/build/work" element={
+                            <Work
+                                logInZIndex={logInZIndex}
+                                checkLogIn={checkLogIn}
+                                setUsername={setUsername} 
+                                setPassword={setPassword}
+                                tries={tries}
+                                notification={notification}
+                            />}
+                        />
+                        <Route path="/ridan/cs392/projects/mini-projects/mp4/build/volunteer" element={
+                            <Volunteer
+                                logInZIndex={logInZIndex}
+                                checkLogIn={checkLogIn}
+                                setUsername={setUsername} 
+                                setPassword={setPassword}
+                                tries={tries}
+                                notification={notification}
+                            />} 
+                        />
+                        <Route path="/ridan/cs392/projects/mini-projects/mp4/build/projects" element={
+                            <Projects
+                                logInZIndex={logInZIndex}
+                                checkLogIn={checkLogIn}
+                                setUsername={setUsername} 
+                                setPassword={setPassword}
+                                tries={tries}
+                                notification={notification}
+                            />}   
+                        />
+                        <Route path="/ridan/cs392/projects/mini-projects/mp4/build/references" element={
+                            <References
+                                logInZIndex={logInZIndex}
+                                checkLogIn={checkLogIn}
+                                setUsername={setUsername} 
+                                setPassword={setPassword}
+                                tries={tries}
+                                notification={notification}
+                            />}         
+                        />
+                        <Route path="/ridan/cs392/projects/mini-projects/mp4/build/credits" element={
+                            <Credits
+                                logInZIndex={logInZIndex}
+                                checkLogIn={checkLogIn}
+                                setUsername={setUsername} 
+                                setPassword={setPassword}
+                                tries={tries}
+                                notification={notification}
+                            />} 
+                        />
                     </Routes>
                 </Container>
                 <Footer>

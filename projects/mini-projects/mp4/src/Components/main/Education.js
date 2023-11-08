@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Main, MainTitle, MainText } from "./Home"
+import { LogInPopUp } from "./LogInPopUp";
 
 export const StyledList = styled.li`
   font-size: calc(6px + 2vh);
@@ -12,9 +13,17 @@ export const Subheading = styled.p`
   font-size: calc(10px + 2vh);
   margin-top: 2vh;
 `
-export function Education(){
+export function Education({logInZIndex, checkLogIn, setUsername, setPassword, tries, notification}){
     return(
         <Main>
+            <LogInPopUp 
+                logInZIndex={logInZIndex} 
+                checkLogIn={checkLogIn}
+                setUsername={setUsername} 
+                setPassword={setPassword}
+                tries={tries}
+                notification={notification}
+            />
             <MainTitle>Education</MainTitle>
             <MainText>
                 <Subheading><strong>Currently Pursuing</strong></Subheading>

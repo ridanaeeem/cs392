@@ -2,10 +2,19 @@ import React from "react";
 import { Main, MainTitle, MainText } from "./Home"
 import { StyledList, Subheading } from "./Education"
 import { Timeframe } from "./Work"
+import { LogInPopUp } from "./LogInPopUp";
 
-export function Volunteer(){
+export function Volunteer({logInZIndex, checkLogIn, setUsername, setPassword, tries, notification}){
     return(
         <Main>
+            <LogInPopUp 
+                logInZIndex={logInZIndex} 
+                checkLogIn={checkLogIn}
+                setUsername={setUsername} 
+                setPassword={setPassword}
+                tries={tries}
+                notification={notification}
+            />
             <MainTitle>Volunteer Experiences</MainTitle>
             <MainText>
                 <Subheading><strong>Intern | UNC Neurosurgery (Remote)</strong></Subheading>

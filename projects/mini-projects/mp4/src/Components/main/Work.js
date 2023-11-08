@@ -2,15 +2,24 @@ import React from 'react'
 import styled from "styled-components";
 import { Main, MainTitle, MainText } from "./Home"
 import { StyledList, Subheading } from "./Education"
+import { LogInPopUp } from "./LogInPopUp";
 
 export const Timeframe = styled.p`
   color: #657C48;
   font-size: calc(8px + 2vh);
 `
 
-export function Work(){
+export function Work({logInZIndex, checkLogIn, setUsername, setPassword, tries, notification}){
     return(
         <Main>
+            <LogInPopUp 
+                logInZIndex={logInZIndex} 
+                checkLogIn={checkLogIn}
+                setUsername={setUsername} 
+                setPassword={setPassword}
+                tries={tries}
+                notification={notification}
+            />
             <MainTitle>Work History</MainTitle>
             <MainText>
                 <Subheading><strong>Undergraduate Research Assistant | Meyer Laboratory</strong></Subheading>

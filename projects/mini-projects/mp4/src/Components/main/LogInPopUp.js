@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import styled from "styled-components";
 
 const LogInGroup = styled.div`
@@ -41,12 +41,7 @@ const Alert = styled.div`
     top: 25vh;
 `;
 
-export function LogInPopUp({logInZIndex, checkLogIn}){
-    // getting usernames and passwords 
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    console.log(username,password);
-
+export function LogInPopUp({logInZIndex, checkLogIn, setUsername, setPassword, tries, notification}){
     return(
         <LogInGroup>
             {/* if logInZIndex == True: Z-index = 1 (box visible)
@@ -57,21 +52,24 @@ export function LogInPopUp({logInZIndex, checkLogIn}){
                 <br></br>
                 <input 
                     type="text" 
-                    value={username}
+                    // event handler for typing in username updates username value 
                     onChange={(e) => setUsername(e.target.value)}
+
                 />
                 <br></br>
                 <label for="password">Password: </label> 
                 <br></br>
                 <input 
                     type="text"
-                    value={password}
+                    // event handler for typing in password updates password value 
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 <br></br>
                 <EnterButton onClick={checkLogIn}>Enter</EnterButton> 
-                <Alert></Alert>
             </LogInBox>
+            <Alert style={{zIndex: (notification === "") ? '-1' : '1'}}>
+                <strong> {notification} </strong>
+            </Alert>
         </LogInGroup>
     );
 }
